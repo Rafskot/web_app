@@ -1,0 +1,25 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Транзакции{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Транзакции</h1>
+        {% if cheks %}
+            {% for el in cheks %}
+                <div class="alert alert-warning">
+                    <h3>{{ el.date_create }}</h3>
+                    <h3>{{ el.status }}</h3>
+                    <h3>{{ el.type }}</h3>
+                    <h3>{{ el.category }}</h3>
+                    <h3>{{ el.sub_categoty }}</h3>
+                    <h3>{{ el.summ }}</h3>
+                    <p>{{ el.coment }}</p>
+                    <a href="{% url 'tran-detail' el.id %}" class="btn btn-warning">Детальная информация</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Нет записей</p>
+        {% endif %}
+    </div>
+{% endblock %}

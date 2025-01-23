@@ -1,0 +1,18 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Транзакция{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Дата создания: {{ transaction.date_create }}</h1>
+        <h1>Дата изменения: {{ transaction.date_update }}</h1>
+        <p>Статус: {{ transaction.status }}</p>
+        <p>Тип: {{ transaction.type }}</p>
+        <p>Категория: {{ transaction.category }}</p>
+        <p>Подкатегория: {{ transaction.sub_categoty }}</p>
+        <p>Сумма: {{ transaction.summ }}</p>
+        <p>Коментарий: {{ transaction.coment }}</p>
+        <a href="{% url 'tran-delete' transaction.id %}" class="btn btn-danger">Удалить</a>
+        <a href="{% url 'tran-update' transaction.id %}" class="btn btn-info">Редактировать</a>
+    </div>
+{% endblock %}
